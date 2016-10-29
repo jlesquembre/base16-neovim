@@ -14,6 +14,38 @@ if !has('gui_running')
   endif
 endif
 
+
+function! s:rgb2color(r,g,b)
+""function! Rgb2color(r,g,b)
+  " Convert 80% -> 204, 100% -> 255, etc.
+  let rgb = map( [a:r,a:g,a:b], 'v:val =~ "%$" ? ( 255 * v:val ) / 100 : v:val' )
+  return printf( '%02x%02x%02x', rgb[0], rgb[1], rgb[2] )
+endfunction
+
+
+function! s:hex2rgb(color)
+  let color = tolower(a:color)
+  let r = str2nr(printf( '0x%s', color[0:1] ), 16)
+  let g = str2nr(printf( '0x%s', color[2:3] ), 16)
+  let b = str2nr(printf( '0x%s', color[4:5] ), 16)
+  return [r, g, b]
+endfunction
+
+
+function! s:mixcolors(colorA, colorB, ...)
+  let colorA = s:hex2rgb(a:colorA)
+  let colorB = s:hex2rgb(a:colorB)
+
+  let factorA = a:0 > 0 ? a:1 : 0.6
+  let factorB = 1 - factorA
+
+  let r = float2nr((colorA[0] * factorA + colorB[0] * factorB) / 2)
+  let g = float2nr((colorA[1] * factorA + colorB[1] * factorB) / 2)
+  let b = float2nr((colorA[2] * factorA + colorB[2] * factorB) / 2)
+  return s:rgb2color(r, g, b)
+endfunction
+
+
 " GUI color definitions
 let s:gui00 = "{{base00-hex}}"
 let s:gui01 = "{{base01-hex}}"
@@ -31,6 +63,11 @@ let s:gui0C = "{{base0C-hex}}"
 let s:gui0D = "{{base0D-hex}}"
 let s:gui0E = "{{base0E-hex}}"
 let s:gui0F = "{{base0F-hex}}"
+
+let s:guiDiffAdd = s:mixcolors("{{base00-hex}}", "{{base0B-hex}}")
+let s:guiDiffDelete = s:mixcolors("{{base00-hex}}", "{{base08-hex}}")
+let s:guiDiffChange = s:mixcolors("{{base00-hex}}", "{{base0D-hex}}")
+let s:guiDiffText = s:mixcolors("{{base00-hex}}", "{{base08-hex}}", 0.3)
 
 " Terminal color definitions
 let s:cterm00 = "00"
@@ -178,10 +215,14 @@ call <sid>hi("cssClassName",   s:gui0E, "", s:cterm0E, "", "", "")
 call <sid>hi("cssColor",       s:gui0C, "", s:cterm0C, "", "", "")
 
 " Diff highlighting
-call <sid>hi("DiffAdd",      s:gui0B, s:gui01,  s:cterm0B, s:cterm01, "", "")
-call <sid>hi("DiffChange",   s:gui03, s:gui01,  s:cterm03, s:cterm01, "", "")
-call <sid>hi("DiffDelete",   s:gui08, s:gui01,  s:cterm08, s:cterm01, "", "")
-call <sid>hi("DiffText",     s:gui0D, s:gui01,  s:cterm0D, s:cterm01, "", "")
+"call <sid>hi("DiffAdd",      s:gui0B, s:gui01,  s:cterm0B, s:cterm01, "", "")
+"call <sid>hi("DiffChange",   s:gui03, s:gui01,  s:cterm03, s:cterm01, "", "")
+"call <sid>hi("DiffText",     s:gui0D, s:gui01,  s:cterm0D, s:cterm01, "", "")
+call <sid>hi("DiffAdd",      "", s:guiDiffAdd,  "", s:guiDiffAdd, "", "")
+call <sid>hi("DiffChange",      "", s:guiDiffChange,  "", s:guiDiffChange, "", "")
+"call <sid>hi("DiffDelete",      "", s:guiDiffDelete,  "", s:guiDiffDelete, "", "")
+call <sid>hi("DiffDelete",   s:gui08, s:gui00,  s:cterm08, s:cterm00, "", "")
+call <sid>hi("DiffText",      "", s:guiDiffText,  "", s:guiDiffText, "", "")
 call <sid>hi("DiffAdded",    s:gui0B, s:gui00,  s:cterm0B, s:cterm00, "", "")
 call <sid>hi("DiffFile",     s:gui08, s:gui00,  s:cterm08, s:cterm00, "", "")
 call <sid>hi("DiffNewFile",  s:gui0B, s:gui00,  s:cterm0B, s:cterm00, "", "")

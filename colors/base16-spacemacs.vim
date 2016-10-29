@@ -323,6 +323,41 @@ call <sid>hi("SpellLocal",   "", s:gui00, "", s:cterm00, "undercurl", s:gui0C)
 call <sid>hi("SpellCap",     "", s:gui00, "", s:cterm00, "undercurl", s:gui0D)
 call <sid>hi("SpellRare",    "", s:gui00, "", s:cterm00, "undercurl", s:gui0E)
 
+" vim-startify
+call <sid>hi("StartifyBracket",  s:gui03, "", s:cterm03, "", "", "")
+call <sid>hi("StartifyFile",     s:gui07, "", s:cterm07, "", "", "")
+call <sid>hi("StartifyFooter",   s:gui03, "", s:cterm03, "", "", "")
+call <sid>hi("StartifyHeader",   s:gui0B, "", s:cterm0B, "", "", "")
+call <sid>hi("StartifyNumber",   s:gui09, "", s:cterm09, "", "", "")
+call <sid>hi("StartifyPath",     s:gui03, "", s:cterm03, "", "", "")
+call <sid>hi("StartifySection",  s:gui0E, "", s:cterm0E, "", "", "")
+call <sid>hi("StartifySelect",   s:gui0C, "", s:cterm0C, "", "", "")
+call <sid>hi("StartifySlash",    s:gui03, "", s:cterm03, "", "", "")
+call <sid>hi("StartifySpecial",  s:gui03, "", s:cterm03, "", "", "")
+
+""highlight StartifyBracket guifg=#585858 ctermfg=240 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifyFile guifg=#eeeeee ctermfg=255 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifyFooter guifg=#585858 ctermfg=240 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifyHeader guifg=#87df87 ctermfg=114 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifyNumber guifg=#ffaf5f ctermfg=215 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifyPath guifg=#8a8a8a ctermfg=245 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifySection guifg=#dfafaf ctermfg=181 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifySelect guifg=#5fdfff ctermfg=81 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifySlash guifg=#585858 ctermfg=240 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifySpecial guifg=#585858 ctermfg=240 ctermbg=NONE gui=NONE cterm=NONE
+""
+""
+""highlight StartifyBracket guifg=#585858 ctermfg=240 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifyFile guifg=#eeeeee ctermfg=255 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifyFooter guifg=#585858 ctermfg=240 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifyHeader guifg=#87df87 ctermfg=114 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifyNumber guifg=#ffaf5f ctermfg=215 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifyPath guifg=#8a8a8a ctermfg=245 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifySection guifg=#dfafaf ctermfg=181 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifySelect guifg=#5fdfff ctermfg=81 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifySlash guifg=#585858 ctermfg=240 ctermbg=NONE gui=NONE cterm=NONE
+""highlight StartifySpecial guifg=#585858 ctermfg=240 ctermbg=NONE gui=NONE cterm=NONE
+
 " Neovim terminal
 let g:terminal_color_0 = '#' . s:gui00
 let g:terminal_color_1 = '#' . s:gui08

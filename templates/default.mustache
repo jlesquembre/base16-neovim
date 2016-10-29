@@ -196,6 +196,13 @@ call <sid>hi("Todo",         s:gui0A, s:gui01, s:cterm0A, s:cterm01, "", "")
 call <sid>hi("Type",         s:gui0A, "", s:cterm0A, "", "none", "")
 call <sid>hi("Typedef",      s:gui0A, "", s:cterm0A, "", "", "")
 
+" Vim highlighting
+call <sid>hi("vimCommand",   s:gui0E, "", s:cterm0E, "", "", "")
+call <sid>hi("vimUserCommand",   s:gui0E, "", s:cterm0E, "", "", "")
+call <sid>hi("vimMap",   s:gui0E, "", s:cterm0E, "", "", "")
+call <sid>hi("vimLet",   s:gui0E, "", s:cterm0E, "", "", "")
+call <sid>hi("vimSet",   s:gui0E, "", s:cterm0E, "", "", "")
+
 " C highlighting
 call <sid>hi("cOperator",   s:gui0C, "", s:cterm0C, "", "", "")
 call <sid>hi("cPreCondit",  s:gui0E, "", s:cterm0E, "", "", "")
@@ -215,14 +222,10 @@ call <sid>hi("cssClassName",   s:gui0E, "", s:cterm0E, "", "", "")
 call <sid>hi("cssColor",       s:gui0C, "", s:cterm0C, "", "", "")
 
 " Diff highlighting
-"call <sid>hi("DiffAdd",      s:gui0B, s:gui01,  s:cterm0B, s:cterm01, "", "")
-"call <sid>hi("DiffChange",   s:gui03, s:gui01,  s:cterm03, s:cterm01, "", "")
-"call <sid>hi("DiffText",     s:gui0D, s:gui01,  s:cterm0D, s:cterm01, "", "")
 call <sid>hi("DiffAdd",      "", s:guiDiffAdd,  "", s:guiDiffAdd, "", "")
-call <sid>hi("DiffChange",      "", s:guiDiffChange,  "", s:guiDiffChange, "", "")
-"call <sid>hi("DiffDelete",      "", s:guiDiffDelete,  "", s:guiDiffDelete, "", "")
+call <sid>hi("DiffChange",   "", s:guiDiffChange,  "", s:guiDiffChange, "", "")
 call <sid>hi("DiffDelete",   s:gui08, s:gui00,  s:cterm08, s:cterm00, "", "")
-call <sid>hi("DiffText",      "", s:guiDiffText,  "", s:guiDiffText, "", "")
+call <sid>hi("DiffText",     "", s:guiDiffText,  "", s:guiDiffText, "", "")
 call <sid>hi("DiffAdded",    s:gui0B, s:gui00,  s:cterm0B, s:cterm00, "", "")
 call <sid>hi("DiffFile",     s:gui08, s:gui00,  s:cterm08, s:cterm00, "", "")
 call <sid>hi("DiffNewFile",  s:gui0B, s:gui00,  s:cterm0B, s:cterm00, "", "")
@@ -326,3 +329,5 @@ delf <sid>hi
 " Remove color variables
 unlet s:gui00 s:gui01 s:gui02 s:gui03  s:gui04  s:gui05  s:gui06  s:gui07  s:gui08  s:gui09 s:gui0A  s:gui0B  s:gui0C  s:gui0D  s:gui0E  s:gui0F
 unlet s:cterm00 s:cterm01 s:cterm02 s:cterm03 s:cterm04 s:cterm05 s:cterm06 s:cterm07 s:cterm08 s:cterm09 s:cterm0A s:cterm0B s:cterm0C s:cterm0D s:cterm0E s:cterm0F
+
+unlet s:guiDiffAdd s:guiDiffDelete s:guiDiffChange s:guiDiffText

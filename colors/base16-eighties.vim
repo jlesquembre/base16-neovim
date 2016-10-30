@@ -338,6 +338,9 @@ call <sid>hi("StartifySpecial",  s:gui03, "", s:cterm03, "", "", "")
 " Halo
 call <sid>hi("Halo", s:gui00, "ffff00", s:cterm00, "226", "", "")
 
+"Extra whitespace
+call <sid>hi("ExtraWhitespace", "", s:gui08, "", s:cterm00, "", "")
+
 " Neovim terminal
 let g:terminal_color_0 = '#' . s:gui00
 let g:terminal_color_1 = '#' . s:gui08

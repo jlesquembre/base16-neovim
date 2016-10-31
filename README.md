@@ -12,21 +12,8 @@ Supports graphical Vim and console Vim.
 * [Startify](https://github.com/mhinz/vim-startify)
 * [Fugitive](https://github.com/tpope/vim-fugitive)
 * [GitGutter](https://github.com/airblade/vim-gitgutter)
-[//]: # * [EasyMotion](https://github.com/Lokaltog/vim-easymotion)
-[//]: # * [Sneak](https://github.com/justinmk/vim-sneak)
-[//]: # * [Indent Guides](https://github.com/nathanaelkane/vim-indent-guides)
-[//]: # * [indentLine](https://github.com/Yggdroot/indentLine)
 * [Better Whitespace](https://github.com/ntpeters/vim-better-whitespace)
-[//]: # * [Rainbow Parenthesis](https://github.com/kien/rainbow_parentheses.vim)
-[//]: # * [Rainbow Parenthesis Improved](https://github.com/oblitum/rainbow)
-[//]: # * [vim-notes](https://github.com/xolox/vim-notes)
-[//]: # * [Gundo](http://sjl.bitbucket.org/gundo.vim/)
-[//]: # * [undotree](https://github.com/mbbill/undotree)
-[//]: # * [Tagbar](https://github.com/majutsushi/tagbar)
-[//]: # * [vim-plug](https://github.com/junegunn/vim-plug)
 * [vim-halo](https://github.com/mhinz/vim-halo)
-[//]: # * [gitv](https://github.com/gregsexton/gitv)
-[//]: # * [vim-painter](https://github.com/thinca/vim-painter)
 
 
 ## Terminal Themes

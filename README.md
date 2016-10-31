@@ -13,7 +13,8 @@ Supports graphical Vim and console Vim.
 * [Fugitive](https://github.com/tpope/vim-fugitive)
 * [GitGutter](https://github.com/airblade/vim-gitgutter)
 * [Better Whitespace](https://github.com/ntpeters/vim-better-whitespace)
-* [vim-halo](https://github.com/mhinz/vim-halo)
+* [Grepper](https://github.com/mhinz/vim-grepper)
+* [Halo](https://github.com/mhinz/vim-halo)
 
 
 ## Terminal Themes

@@ -2,7 +2,7 @@
 
 " base16-vim (https://github.com/chriskempson/base16-vim)
 " by Chris Kempson (http://chriskempson.com)
-" OneDark scheme by Lalit Magant (http://github.com/tilal6991)
+" Gruvbox dark, pale scheme by Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 
 " This enables the coresponding base16-shell script to run so that
 " :colorscheme works in terminals supported by base16-shell scripts
@@ -10,7 +10,7 @@
 "   let g:base16_shell_path=base16-builder/output/shell/
 if !has('gui_running')
   if exists("g:base16_shell_path")
-    execute "silent !/bin/sh ".g:base16_shell_path."/base16-onedark.sh"
+    execute "silent !/bin/sh ".g:base16_shell_path."/base16-gruvbox-dark-pale.sh"
   endif
 endif
 
@@ -47,27 +47,27 @@ endfunction
 
 
 " GUI color definitions
-let s:gui00 = "282c34"
-let s:gui01 = "353b45"
-let s:gui02 = "3e4451"
-let s:gui03 = "545862"
-let s:gui04 = "565c64"
-let s:gui05 = "abb2bf"
-let s:gui06 = "b6bdca"
-let s:gui07 = "c8ccd4"
-let s:gui08 = "e06c75"
-let s:gui09 = "d19a66"
-let s:gui0A = "e5c07b"
-let s:gui0B = "98c379"
-let s:gui0C = "56b6c2"
-let s:gui0D = "61afef"
-let s:gui0E = "c678dd"
-let s:gui0F = "be5046"
+let s:gui00 = "262626"
+let s:gui01 = "3a3a3a"
+let s:gui02 = "4e4e4e"
+let s:gui03 = "8a8a8a"
+let s:gui04 = "949494"
+let s:gui05 = "dab997"
+let s:gui06 = "d5c4a1"
+let s:gui07 = "ebdbb2"
+let s:gui08 = "d75f5f"
+let s:gui09 = "ff8700"
+let s:gui0A = "ffaf00"
+let s:gui0B = "afaf00"
+let s:gui0C = "85ad85"
+let s:gui0D = "83adad"
+let s:gui0E = "d485ad"
+let s:gui0F = "d65d0e"
 
-let s:guiDiffAdd = s:mixcolors("282c34", "98c379", 0.3)
-let s:guiDiffDelete = s:mixcolors("282c34", "e06c75")
-let s:guiDiffChange = s:mixcolors("282c34", "61afef", 0.3)
-let s:guiDiffText = s:mixcolors("282c34", "e06c75", 0.2)
+let s:guiDiffAdd = s:mixcolors("262626", "afaf00", 0.3)
+let s:guiDiffDelete = s:mixcolors("262626", "d75f5f")
+let s:guiDiffChange = s:mixcolors("262626", "83adad", 0.3)
+let s:guiDiffText = s:mixcolors("262626", "d75f5f", 0.2)
 
 " Terminal color definitions
 let s:cterm00 = "00"
@@ -99,7 +99,7 @@ endif
 " Theme setup
 hi clear
 syntax reset
-let g:colors_name = "base16-onedark"
+let g:colors_name = "base16-gruvbox-dark-pale"
 
 " Highlighting function
 fun <sid>hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)

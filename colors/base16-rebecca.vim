@@ -2,7 +2,7 @@
 
 " base16-vim (https://github.com/chriskempson/base16-vim)
 " by Chris Kempson (http://chriskempson.com)
-" OneDark scheme by Lalit Magant (http://github.com/tilal6991)
+" Rebecca scheme by Victor Borja (http://github.com/vic) based on Rebecca Theme (http://github.com/vic/rebecca-theme)
 
 " This enables the coresponding base16-shell script to run so that
 " :colorscheme works in terminals supported by base16-shell scripts
@@ -10,7 +10,7 @@
 "   let g:base16_shell_path=base16-builder/output/shell/
 if !has('gui_running')
   if exists("g:base16_shell_path")
-    execute "silent !/bin/sh ".g:base16_shell_path."/base16-onedark.sh"
+    execute "silent !/bin/sh ".g:base16_shell_path."/base16-rebecca.sh"
   endif
 endif
 
@@ -47,27 +47,27 @@ endfunction
 
 
 " GUI color definitions
-let s:gui00 = "282c34"
-let s:gui01 = "353b45"
-let s:gui02 = "3e4451"
-let s:gui03 = "545862"
-let s:gui04 = "565c64"
-let s:gui05 = "abb2bf"
-let s:gui06 = "b6bdca"
-let s:gui07 = "c8ccd4"
-let s:gui08 = "e06c75"
-let s:gui09 = "d19a66"
-let s:gui0A = "e5c07b"
-let s:gui0B = "98c379"
-let s:gui0C = "56b6c2"
-let s:gui0D = "61afef"
-let s:gui0E = "c678dd"
-let s:gui0F = "be5046"
+let s:gui00 = "292a44"
+let s:gui01 = "663399"
+let s:gui02 = "383a62"
+let s:gui03 = "666699"
+let s:gui04 = "a0a0c5"
+let s:gui05 = "f1eff8"
+let s:gui06 = "ccccff"
+let s:gui07 = "53495d"
+let s:gui08 = "a0a0c5"
+let s:gui09 = "efe4a1"
+let s:gui0A = "ae81ff"
+let s:gui0B = "6dfedf"
+let s:gui0C = "8eaee0"
+let s:gui0D = "2de0a7"
+let s:gui0E = "7aa5ff"
+let s:gui0F = "ff79c6"
 
-let s:guiDiffAdd = s:mixcolors("282c34", "98c379", 0.3)
-let s:guiDiffDelete = s:mixcolors("282c34", "e06c75")
-let s:guiDiffChange = s:mixcolors("282c34", "61afef", 0.3)
-let s:guiDiffText = s:mixcolors("282c34", "e06c75", 0.2)
+let s:guiDiffAdd = s:mixcolors("292a44", "6dfedf", 0.3)
+let s:guiDiffDelete = s:mixcolors("292a44", "a0a0c5")
+let s:guiDiffChange = s:mixcolors("292a44", "2de0a7", 0.3)
+let s:guiDiffText = s:mixcolors("292a44", "a0a0c5", 0.2)
 
 " Terminal color definitions
 let s:cterm00 = "00"
@@ -99,7 +99,7 @@ endif
 " Theme setup
 hi clear
 syntax reset
-let g:colors_name = "base16-onedark"
+let g:colors_name = "base16-rebecca"
 
 " Highlighting function
 fun <sid>hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)

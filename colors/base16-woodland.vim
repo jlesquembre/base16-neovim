@@ -2,7 +2,7 @@
 
 " base16-vim (https://github.com/chriskempson/base16-vim)
 " by Chris Kempson (http://chriskempson.com)
-" Default Dark scheme by Chris Kempson (http://chriskempson.com)
+" Woodland scheme by Jay Cornwall (https://jcornwall.com)
 
 " This enables the coresponding base16-shell script to run so that
 " :colorscheme works in terminals supported by base16-shell scripts
@@ -10,64 +10,27 @@
 "   let g:base16_shell_path=base16-builder/output/shell/
 if !has('gui_running')
   if exists("g:base16_shell_path")
-    execute "silent !/bin/sh ".g:base16_shell_path."/base16-default-dark.sh"
+    execute "silent !/bin/sh ".g:base16_shell_path."/base16-woodland.sh"
   endif
 endif
 
-
-function! s:rgb2color(r,g,b)
-""function! Rgb2color(r,g,b)
-  " Convert 80% -> 204, 100% -> 255, etc.
-  let rgb = map( [a:r,a:g,a:b], 'v:val =~ "%$" ? ( 255 * v:val ) / 100 : v:val' )
-  return printf( '%02x%02x%02x', rgb[0], rgb[1], rgb[2] )
-endfunction
-
-
-function! s:hex2rgb(color)
-  let color = tolower(a:color)
-  let r = str2nr(printf( '0x%s', color[0:1] ), 16)
-  let g = str2nr(printf( '0x%s', color[2:3] ), 16)
-  let b = str2nr(printf( '0x%s', color[4:5] ), 16)
-  return [r, g, b]
-endfunction
-
-
-function! s:mixcolors(colorA, colorB, ...)
-  let colorA = s:hex2rgb(a:colorA)
-  let colorB = s:hex2rgb(a:colorB)
-
-  let factorA = a:0 > 0 ? a:1 : 0.6
-  let factorB = 1 - factorA
-
-  let r = float2nr((colorA[0] * factorA + colorB[0] * factorB) / 2)
-  let g = float2nr((colorA[1] * factorA + colorB[1] * factorB) / 2)
-  let b = float2nr((colorA[2] * factorA + colorB[2] * factorB) / 2)
-  return s:rgb2color(r, g, b)
-endfunction
-
-
 " GUI color definitions
-let s:gui00 = "181818"
-let s:gui01 = "282828"
-let s:gui02 = "383838"
-let s:gui03 = "585858"
-let s:gui04 = "b8b8b8"
-let s:gui05 = "d8d8d8"
-let s:gui06 = "e8e8e8"
-let s:gui07 = "f8f8f8"
-let s:gui08 = "ab4642"
-let s:gui09 = "dc9656"
-let s:gui0A = "f7ca88"
-let s:gui0B = "a1b56c"
-let s:gui0C = "86c1b9"
-let s:gui0D = "7cafc2"
-let s:gui0E = "ba8baf"
-let s:gui0F = "a16946"
-
-let s:guiDiffAdd = s:mixcolors("181818", "a1b56c", 0.3)
-let s:guiDiffDelete = s:mixcolors("181818", "ab4642")
-let s:guiDiffChange = s:mixcolors("181818", "7cafc2", 0.3)
-let s:guiDiffText = s:mixcolors("181818", "ab4642", 0.2)
+let s:gui00 = "231e18"
+let s:gui01 = "302b25"
+let s:gui02 = "48413a"
+let s:gui03 = "9d8b70"
+let s:gui04 = "b4a490"
+let s:gui05 = "cabcb1"
+let s:gui06 = "d7c8bc"
+let s:gui07 = "e4d4c8"
+let s:gui08 = "d35c5c"
+let s:gui09 = "ca7f32"
+let s:gui0A = "e0ac16"
+let s:gui0B = "b7ba53"
+let s:gui0C = "6eb958"
+let s:gui0D = "88a4d3"
+let s:gui0E = "bb90e2"
+let s:gui0F = "b49368"
 
 " Terminal color definitions
 let s:cterm00 = "00"
@@ -99,7 +62,7 @@ endif
 " Theme setup
 hi clear
 syntax reset
-let g:colors_name = "base16-default-dark"
+let g:colors_name = "base16-woodland"
 
 " Highlighting function
 fun <sid>hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
@@ -131,15 +94,15 @@ call <sid>hi("Error",         s:gui00, s:gui08, s:cterm00, s:cterm08, "", "")
 call <sid>hi("ErrorMsg",      s:gui08, s:gui00, s:cterm08, s:cterm00, "", "")
 call <sid>hi("Exception",     s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("FoldColumn",    s:gui0C, s:gui01, s:cterm0C, s:cterm01, "", "")
-call <sid>hi("Folded",        s:gui05, s:gui03, s:cterm05, s:cterm03, "", "")
-call <sid>hi("IncSearch",     s:gui01, s:gui0A, s:cterm01, s:cterm0A, "none", "")
+call <sid>hi("Folded",        s:gui03, s:gui01, s:cterm03, s:cterm01, "", "")
+call <sid>hi("IncSearch",     s:gui01, s:gui09, s:cterm01, s:cterm09, "none", "")
 call <sid>hi("Italic",        "", "", "", "", "none", "")
 call <sid>hi("Macro",         s:gui08, "", s:cterm08, "", "", "")
-call <sid>hi("MatchParen",    s:gui05, s:gui03, s:cterm05, s:cterm03, "bold,italic", "")
+call <sid>hi("MatchParen",    s:gui00, s:gui03, "", s:cterm03,  "", "")
 call <sid>hi("ModeMsg",       s:gui0B, "", s:cterm0B, "", "", "")
 call <sid>hi("MoreMsg",       s:gui0B, "", s:cterm0B, "", "", "")
 call <sid>hi("Question",      s:gui0D, "", s:cterm0D, "", "", "")
-call <sid>hi("Search",        s:gui01, s:gui0A, s:cterm01, s:cterm0A,  "", "")
+call <sid>hi("Search",        s:gui03, s:gui0A, s:cterm03, s:cterm0A,  "", "")
 call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "", "")
 call <sid>hi("TooLong",       s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("Underlined",    s:gui08, "", s:cterm08, "", "", "")
@@ -160,13 +123,12 @@ call <sid>hi("VertSplit",     s:gui02, s:gui02, s:cterm02, s:cterm02, "none", ""
 call <sid>hi("ColorColumn",   "", s:gui01, "", s:cterm01, "none", "")
 call <sid>hi("CursorColumn",  "", s:gui01, "", s:cterm01, "none", "")
 call <sid>hi("CursorLine",    "", s:gui01, "", s:cterm01, "none", "")
-call <sid>hi("CursorLineNr",  s:gui05, s:gui03, s:cterm05, s:cterm03, "bold", "")
+call <sid>hi("CursorLineNr",  s:gui04, s:gui01, s:cterm04, s:cterm01, "", "")
 call <sid>hi("PMenu",         s:gui04, s:gui01, s:cterm04, s:cterm01, "none", "")
 call <sid>hi("PMenuSel",      s:gui01, s:gui04, s:cterm01, s:cterm04, "", "")
 call <sid>hi("TabLine",       s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
 call <sid>hi("TabLineFill",   s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
 call <sid>hi("TabLineSel",    s:gui0B, s:gui01, s:cterm0B, s:cterm01, "none", "")
-call <sid>hi("QuickFixLine",  s:gui00, s:gui09, s:cterm00, s:cterm09, "none", "")
 
 " Standard syntax highlighting
 call <sid>hi("Boolean",      s:gui09, "", s:cterm09, "", "", "")
@@ -197,13 +159,6 @@ call <sid>hi("Todo",         s:gui0A, s:gui01, s:cterm0A, s:cterm01, "", "")
 call <sid>hi("Type",         s:gui0A, "", s:cterm0A, "", "none", "")
 call <sid>hi("Typedef",      s:gui0A, "", s:cterm0A, "", "", "")
 
-" Vim highlighting
-call <sid>hi("vimCommand",   s:gui0E, "", s:cterm0E, "", "", "")
-call <sid>hi("vimUserCommand",   s:gui0E, "", s:cterm0E, "", "", "")
-call <sid>hi("vimMap",   s:gui0E, "", s:cterm0E, "", "", "")
-call <sid>hi("vimLet",   s:gui0E, "", s:cterm0E, "", "", "")
-call <sid>hi("vimSet",   s:gui0E, "", s:cterm0E, "", "", "")
-
 " C highlighting
 call <sid>hi("cOperator",   s:gui0C, "", s:cterm0C, "", "", "")
 call <sid>hi("cPreCondit",  s:gui0E, "", s:cterm0E, "", "", "")
@@ -223,10 +178,10 @@ call <sid>hi("cssClassName",   s:gui0E, "", s:cterm0E, "", "", "")
 call <sid>hi("cssColor",       s:gui0C, "", s:cterm0C, "", "", "")
 
 " Diff highlighting
-call <sid>hi("DiffAdd",      "", s:guiDiffAdd,  "", s:guiDiffAdd, "", "")
-call <sid>hi("DiffChange",   "", s:guiDiffChange,  "", s:guiDiffChange, "", "")
-call <sid>hi("DiffDelete",   s:gui08, s:gui00,  s:cterm08, s:cterm00, "", "")
-call <sid>hi("DiffText",     "", s:guiDiffText,  "", s:guiDiffText, "", "")
+call <sid>hi("DiffAdd",      s:gui0B, s:gui01,  s:cterm0B, s:cterm01, "", "")
+call <sid>hi("DiffChange",   s:gui03, s:gui01,  s:cterm03, s:cterm01, "", "")
+call <sid>hi("DiffDelete",   s:gui08, s:gui01,  s:cterm08, s:cterm01, "", "")
+call <sid>hi("DiffText",     s:gui0D, s:gui01,  s:cterm0D, s:cterm01, "", "")
 call <sid>hi("DiffAdded",    s:gui0B, s:gui00,  s:cterm0B, s:cterm00, "", "")
 call <sid>hi("DiffFile",     s:gui08, s:gui00,  s:cterm08, s:cterm00, "", "")
 call <sid>hi("DiffNewFile",  s:gui0B, s:gui00,  s:cterm0B, s:cterm00, "", "")
@@ -310,8 +265,6 @@ call <sid>hi("phpParent",          s:gui05, "", s:cterm05, "", "", "")
 " Python highlighting
 call <sid>hi("pythonOperator",  s:gui0E, "", s:cterm0E, "", "", "")
 call <sid>hi("pythonRepeat",    s:gui0E, "", s:cterm0E, "", "", "")
-call <sid>hi("pythonInclude",   s:gui0E, "", s:cterm0E, "", "", "")
-call <sid>hi("pythonStatement", s:gui0E, "", s:cterm0E, "", "", "")
 
 " Ruby highlighting
 call <sid>hi("rubyAttribute",               s:gui0D, "", s:cterm0D, "", "", "")
@@ -339,54 +292,9 @@ call <sid>hi("SpellLocal",   "", s:gui00, "", s:cterm00, "undercurl", s:gui0C)
 call <sid>hi("SpellCap",     "", s:gui00, "", s:cterm00, "undercurl", s:gui0D)
 call <sid>hi("SpellRare",    "", s:gui00, "", s:cterm00, "undercurl", s:gui0E)
 
-" vim-startify
-call <sid>hi("StartifyBracket",  s:gui03, "", s:cterm03, "", "", "")
-call <sid>hi("StartifyFile",     s:gui07, "", s:cterm07, "", "", "")
-call <sid>hi("StartifyFooter",   s:gui03, "", s:cterm03, "", "", "")
-call <sid>hi("StartifyHeader",   s:gui0B, "", s:cterm0B, "", "", "")
-call <sid>hi("StartifyNumber",   s:gui09, "", s:cterm09, "", "", "")
-call <sid>hi("StartifyPath",     s:gui03, "", s:cterm03, "", "", "")
-call <sid>hi("StartifySection",  s:gui0E, "", s:cterm0E, "", "", "")
-call <sid>hi("StartifySelect",   s:gui0C, "", s:cterm0C, "", "", "")
-call <sid>hi("StartifySlash",    s:gui03, "", s:cterm03, "", "", "")
-call <sid>hi("StartifySpecial",  s:gui03, "", s:cterm03, "", "", "")
-
-" Halo
-call <sid>hi("Halo", s:gui00, "ffff00", s:cterm00, "226", "", "")
-
-" Grepper
-call <sid>hi("qfFileName", s:gui0D, "", s:cterm0D, "", "", "")
-call <sid>hi("qfLineNr", s:gui03, s:gui01, s:cterm03, s:cterm01, "", "")
-call <sid>hi("qfSeparator", s:gui05, s:gui00, s:cterm05, s:cterm00, "", "")
-
-"Extra whitespace
-call <sid>hi("ExtraWhitespace", "", s:gui08, "", s:cterm00, "", "")
-
-" Neovim terminal
-let g:terminal_color_0 = '#' . s:gui00
-let g:terminal_color_1 = '#' . s:gui08
-let g:terminal_color_2 = '#' . s:gui0B
-let g:terminal_color_3 = '#' . s:gui0A
-let g:terminal_color_4 = '#' . s:gui0D
-let g:terminal_color_5 = '#' . s:gui0E
-let g:terminal_color_6 = '#' . s:gui0C
-let g:terminal_color_7 = '#' . s:gui05
-let g:terminal_color_8 = '#' . s:gui03
-let g:terminal_color_9 = '#' . s:gui08
-let g:terminal_color_10 = '#' . s:gui0B
-let g:terminal_color_11 = '#' . s:gui0A
-let g:terminal_color_12 = '#' . s:gui0D
-let g:terminal_color_13 = '#' . s:gui0E
-let g:terminal_color_14 = '#' . s:gui0C
-let g:terminal_color_15 = '#' . s:gui07
-let g:terminal_color_background = '#' . s:gui00
-let g:terminal_color_foreground = '#' . s:gui05
-
 " Remove functions
 delf <sid>hi
 
 " Remove color variables
 unlet s:gui00 s:gui01 s:gui02 s:gui03  s:gui04  s:gui05  s:gui06  s:gui07  s:gui08  s:gui09 s:gui0A  s:gui0B  s:gui0C  s:gui0D  s:gui0E  s:gui0F
 unlet s:cterm00 s:cterm01 s:cterm02 s:cterm03 s:cterm04 s:cterm05 s:cterm06 s:cterm07 s:cterm08 s:cterm09 s:cterm0A s:cterm0B s:cterm0C s:cterm0D s:cterm0E s:cterm0F
-
-unlet s:guiDiffAdd s:guiDiffDelete s:guiDiffChange s:guiDiffText
